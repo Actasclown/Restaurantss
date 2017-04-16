@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="login_bg_color">#2154e8</color>
+    <color name="login_button_color">#42bcff</color>
+    <color name="login_button_color_pressed">#0999ff</color>
+    <color name="primaryDark">#2154e8</color>
+
+    <color name="search_bar_bg">#101e1f</color>
+
+    <color name="search_view_bg">#00ffffff</color>
+
+    <color name="search_card_bg">#5f6367</color>
+
+    <color name="search_view_status">#6aecebeb</color>
+    <!--<color name="search_view_bg">#212121</color>-->
+    <!--<color name="search_view_status">#000000</color>-->
+    <color name="colorOrange">#FD713F</color>
+
+
+
+
+    <color name="subTextColor">#68ffffff</color>
+
+
+    <!--<color name="card_bg">#303030</color>-->
+</resources>

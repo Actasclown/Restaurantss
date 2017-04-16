@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="network_unavailable">You are offline</string>
+    <string name="twitter_callback">http://techturning.blogspot.com</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="title_activity_search_activity">search_activity</string>
+</resources>
