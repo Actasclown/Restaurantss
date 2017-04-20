@@ -107,6 +107,8 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
+
+                //  修改于2017.4.20, 用反射自动查找端口
                 try {
                     Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
                     Object cons = clz.newInstance();
@@ -117,8 +119,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 }
 
-                //String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"k  eyword\":\" "+ searchQuery +" \",\"pageNum\":\"0\"}";
-                String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"keyword\":\"奶茶\",\"pageNum\":\"1\"}";
+                String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"k  eyword\":\" "+ searchQuery +" \",\"pageNum\":\"0\"}";
                 YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
                 String searchResult = yanCloud.get("com.sankuai.meituan.takeoutnew", "getSearch", testSearch);
                 Log.d("美团外卖搜索结果:", searchResult);
@@ -127,6 +128,8 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
+
+                //  修改于2017.4.20, 用反射自动查找端口
                 try {
                     Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
                     Object cons = clz.newInstance();
@@ -136,6 +139,7 @@ public class SearchActivity extends AppCompatActivity {
                 }catch(Exception e){
 
                 }
+
                 String json = "{\"latitude\": \"39.966714\",\"longitude\": \"116.306533\",\"keyword\": \"" + searchQuery + "\"}";
                 YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
                 String searchResult = yanCloud.get("me.ele", "searchRestaurant", json);
@@ -145,6 +149,8 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
+
+                //  修改于2017.4.20, 用反射自动查找端口
                 try {
                     Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
                     Object cons = clz.newInstance();
@@ -154,9 +160,9 @@ public class SearchActivity extends AppCompatActivity {
                 }catch(Exception e){
 
                 }
+                
                 YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
-                //String json = "{\"keyword\": \"" + searchQuery + "\"}";
-                String json = "{\"keyword\": \"奶茶\"}";
+                String json = "{\"keyword\": \"" + searchQuery + "\"}";
                 String searchResult = (String) yanCloud.get("comm", "queryRestaurant", json);
                 Log.d("百度外卖搜索结果:", searchResult);
             }
