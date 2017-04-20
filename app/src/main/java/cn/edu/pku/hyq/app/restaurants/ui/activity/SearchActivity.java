@@ -115,8 +115,8 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
-                String json = "{\"latitude\": \"39.966714\",\"longitude\": \"116.306533\",\"keyword\": \" " + searchQuery + "\"}";
-                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1729);
+                String json = "{\"latitude\": \"39.966714\",\"longitude\": \"116.306533\",\"keyword\": \"" + searchQuery + "\"}";
+                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1738);
                 String searchResult = yanCloud.get("me.ele", "searchRestaurant", json);
                 Log.d("饿了么外卖搜索结果:", searchResult);
             }
@@ -124,7 +124,7 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
-                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1759);
+                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1729);
                 String json = "{\"keyword\": \"" + searchQuery + "\"}";
                 String searchResult = (String) yanCloud.get("comm", "queryRestaurant", json);
                 Log.d("百度外卖搜索结果:", searchResult);

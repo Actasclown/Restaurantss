@@ -26,7 +26,8 @@ public class Utils {
             for (; startPort < AppConsts.END_PORT; startPort++) {
 //                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, startPort);
 //                String processName = yanCloud.get(AppConsts.API_PORTER, AppConsts.METHOD_GET_PROCESS_NAME, null);
-                String processName = new YanCloudGet(AppConsts.LOCAL_IP, startPort).get(AppConsts.API_PORTER, AppConsts.METHOD_GET_PROCESS_NAME, null);
+                String processName = new YanCloudGet(AppConsts.LOCAL_IP, startPort)
+                        .get(AppConsts.API_PORTER, AppConsts.METHOD_GET_PROCESS_NAME, null);
                 Log.d(TagConsts.LONG_TAG, processName + "::" + startPort);
                 for(String packageName : AppConsts.APP_PACKAGES){
                     if(packageName.equals(processName)){
