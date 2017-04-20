@@ -33,6 +33,7 @@ import cn.edu.pku.hyq.app.restaurants.utils.Utils;
 import com.alibaba.fastjson.JSONObject;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 
@@ -106,8 +107,19 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
-                String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"keyword\":\" "+ searchQuery +" \",\"pageNum\":\"0\"}";
-                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1788);
+                try {
+                    Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
+                    Object cons = clz.newInstance();
+
+                    Method met = clz.getDeclaredMethod("getPortByPKgName",String.class);
+                    port = (int)met.invoke(cons,appPackages);
+                }catch(Exception e){
+
+                }
+
+                //String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"k  eyword\":\" "+ searchQuery +" \",\"pageNum\":\"0\"}";
+                String testSearch = "{\"lat\":\"39986316\",\"lng\":\"116304664\",\"keyword\":\"奶茶\",\"pageNum\":\"1\"}";
+                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
                 String searchResult = yanCloud.get("com.sankuai.meituan.takeoutnew", "getSearch", testSearch);
                 Log.d("美团外卖搜索结果:", searchResult);
             }
@@ -115,8 +127,17 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
+                try {
+                    Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
+                    Object cons = clz.newInstance();
+
+                    Method met = clz.getDeclaredMethod("getPortByPKgName",String.class);
+                    port = (int)met.invoke(cons,appPackages);
+                }catch(Exception e){
+
+                }
                 String json = "{\"latitude\": \"39.966714\",\"longitude\": \"116.306533\",\"keyword\": \"" + searchQuery + "\"}";
-                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1738);
+                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
                 String searchResult = yanCloud.get("me.ele", "searchRestaurant", json);
                 Log.d("饿了么外卖搜索结果:", searchResult);
             }
@@ -124,8 +145,18 @@ public class SearchActivity extends AppCompatActivity {
                 if(aliveApps.get(appPackages) != null) {
                     port = aliveApps.get(appPackages);
                 }
-                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, 1729);
-                String json = "{\"keyword\": \"" + searchQuery + "\"}";
+                try {
+                    Class clz = Class.forName("cn.edu.pku.apiminier.debug.TraceStarter");
+                    Object cons = clz.newInstance();
+
+                    Method met = clz.getDeclaredMethod("getPortByPKgName",String.class);
+                    port = (int)met.invoke(cons,appPackages);
+                }catch(Exception e){
+
+                }
+                YanCloud yanCloud = YanCloud.fromGet(AppConsts.LOCAL_IP, port);
+                //String json = "{\"keyword\": \"" + searchQuery + "\"}";
+                String json = "{\"keyword\": \"奶茶\"}";
                 String searchResult = (String) yanCloud.get("comm", "queryRestaurant", json);
                 Log.d("百度外卖搜索结果:", searchResult);
             }
